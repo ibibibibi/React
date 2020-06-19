@@ -7,14 +7,14 @@ class Hero extends React.Component {
     return (
       <header className={styles.component}>
         <h2 className={styles.title}>{this.props.title}</h2>
-        <img className={styles.image}>{this.props.imaheH}</img>
+        <img className={styles.image}>{this.props.image}</img>
     </header>
     )
   }
 }
 
-Hero.propTypes = {
-    title: PropTypes.node.isRequired,
-  };
+// Hero.propTypes = {
+//     title: PropTypes.node.isRequired,
+//   };
 
 export default Hero;

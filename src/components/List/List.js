@@ -16,8 +16,7 @@ class List extends React.Component {
     render() {
         return (
             <section className={styles.title}>
-                <Hero title={this.props.title}/>
-                <Hero imageH={this.props.image}/>
+                <Hero title={this.props.title} image={this.props.image}/>
                 <div className={styles.description}>
                     {this.props.children}
                 </div>
