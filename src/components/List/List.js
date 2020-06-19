@@ -1,12 +1,12 @@
 import React from 'react';
-import css from './List.scss';
-import Footer from '../Footer/Footer';
+import Hero from '../Hero/Hero';
+import styles from './List.scss';
 
 class List extends React.Component {
   render() {
     return (
-      <section className={css.title}>
-        <h2>Lista Lista</h2>
+      <section className={styles.title}>
+        <Hero/>
     </section>
     )
   }
