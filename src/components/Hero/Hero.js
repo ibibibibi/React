@@ -7,7 +7,7 @@ class Hero extends React.Component {
     return (
       <header className={styles.component}>
         <h2 className={styles.title}>{this.props.title}</h2>
-        <img className={styles.image}>{this.props.image}</img>
+        <img src={this.props.image} className={styles.image}/>
     </header>
     )
   }

@@ -1,6 +1,7 @@
 import React from 'react';
 import Hero from '../Hero/Hero';
 import styles from './List.scss';
+import styles from '../Column.scss';
 import PropTypes from 'prop-types';
 
 class List extends React.Component {
@@ -15,10 +16,14 @@ class List extends React.Component {
 
     render() {
         return (
-            <section className={styles.title}>
-                <Hero title={this.props.title} image={this.props.image}/>
+            <section className={styles.component}>
+                <Hero className={styles.title} title={this.props.title} image={this.props.image}/>
                 <div className={styles.description}>
                     {this.props.children}
+                </div>
+            
+                <div className={styles.column}>
+                <column>Animals</column>
                 </div>
             </section>
         )

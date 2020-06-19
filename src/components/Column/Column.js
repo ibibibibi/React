@@ -10,3 +10,5 @@ class Column extends React.Component{
         </div>
     }
 }
+
+export default Column;
