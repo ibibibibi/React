@@ -6,7 +6,10 @@ class List extends React.Component {
   render() {
     return (
         <section className={styles.title}>
-            <Hero/>
+            <Hero titleText={this.props.title} />
+            <div className={styles.description}>
+                {this.props.children}
+            </div>
         </section>
     )
   }
