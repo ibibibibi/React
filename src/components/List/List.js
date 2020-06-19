@@ -5,9 +5,9 @@ import styles from './List.scss';
 class List extends React.Component {
   render() {
     return (
-      <section className={styles.title}>
-        <Hero/>
-    </section>
+        <section className={styles.title}>
+            <Hero/>
+        </section>
     )
   }
 }
