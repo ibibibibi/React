@@ -1,9 +1,12 @@
 import React from 'react';
-import Hero from '../Hero/Hero';
 import styles from './Column.scss';
 import PropTypes from 'prop-types';
 
 class Column extends React.Component{
+    static propTypes = {
+        title: PropTypes.string.isRequired,
+    }
+
     render() {
         return(
             <div className={styles.component}>

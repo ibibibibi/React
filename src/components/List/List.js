@@ -1,32 +1,62 @@
 import React from 'react';
 import Hero from '../Hero/Hero';
 import styles from './List.scss';
-import columnStyles from '../Column/Column.scss';
 import PropTypes from 'prop-types';
 import Column from '../Column/Column';
+import {settings} from '../../data/dataStore';
+import Creator from '../Creator/Creator';
 
 class List extends React.Component {
-    static propTypes = {
+    state = {
+        columns: this.props.columns || [],
+      }
+      
+      static propTypes = {
         title: PropTypes.node.isRequired,
-        children: PropTypes.node,
+        description: PropTypes.node,
+        columns: PropTypes.array,
     }
 
     static defaultProps = {
-        children: <p>I can do all the things!!!</p>,
+        description: settings.defaultListDescription,
+    }
+
+    addColumn(title){
+        this.setState(state => (
+          {
+            columns: [
+              ...state.columns,
+              {
+                key: state.columns.length ? state.columns[state.columns.length-1].key+1 : 0,
+                title,
+                icon: 'list-alt',
+                cards: []
+              }
+            ]
+          }
+        ));
     }
 
     render() {
+        console.log(this.props);
         return (
             <section className={styles.component}>
                 <Hero className={styles.title} title={this.props.title} image={this.props.image}/>
                 <div className={styles.description}>
-                    {this.props.children}
+                    {this.props.description}
                 </div>
             
                 <div className={styles.columns}>
-                    <Column firstColumn={this.props.column1} title="Films"/>
-                    <Column secondColumn={this.props.column2} title="Books"/>
-                    <Column thirdColumn={this.props.column3} title="Important"/>
+                    {this.state.columns.map(({key, ...columnProps}) => (
+                        <Column key={key} {...columnProps} />
+                    ))}
+                    {/* <Column title="Films"/>
+                    <Column title="Books"/>
+                    <Column title="Important"/> */}
+                </div>
+
+                <div className={styles.creator}>
+                    <Creator text={settings.columnCreatorText} action={title => this.addColumn(title)}/>
                 </div>
             </section>
         )
