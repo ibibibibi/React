@@ -9,12 +9,14 @@ import Creator from '../Creator/Creator';
 class List extends React.Component {
     state = {
         columns: this.props.columns || [],
+        cards: this.props.cards || [],
       }
       
       static propTypes = {
         title: PropTypes.node.isRequired,
         description: PropTypes.node,
         columns: PropTypes.array,
+        cards: PropTypes.array,
     }
 
     static defaultProps = {
@@ -50,9 +52,6 @@ class List extends React.Component {
                     {this.state.columns.map(({key, ...columnProps}) => (
                         <Column key={key} {...columnProps} />
                     ))}
-                    {/* <Column title="Films"/>
-                    <Column title="Books"/>
-                    <Column title="Important"/> */}
                 </div>
 
                 <div className={styles.creator}>
