@@ -19,12 +19,11 @@ class Column extends React.Component{
         this.setState(state => ({
             cards:[...state.cards,
                 {
-                key: state.cards.length ? state.cards[state.columns.length-1].key+1 : 0,
+                key: state.cards.length ? state.cards[state.cards.length-1].key+1 : 0,
                 title,
-                }
-            ]
-        }
-        ));
+                },
+            ],
+        }));
     }
 
     render() {
@@ -43,7 +42,7 @@ class Column extends React.Component{
                     ))}
                 </div>
                 <div className={styles.creator}>
-                    <Creator text={settings.cardCreatorText} title = {this.addCard(title)}
+                    <Creator text={settings.cardCreatorText} action={(title) => this.addCard(title)}
                     />
                 </div>
             </div>
