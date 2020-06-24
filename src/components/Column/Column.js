@@ -7,6 +7,10 @@ import Creator from '../Creator/Creator';
 import {settings} from '../../data/dataStore';
 
 class Column extends React.Component{
+    state = {
+        cards: this.props.cards || []
+    }
+    
     static propTypes = {
         title: PropTypes.string.isRequired,
     }
@@ -24,7 +28,10 @@ class Column extends React.Component{
     }
 
     render() {
-        const {title, icon, cards, addCard} = this.props;
+        const {title, icon, addCard} = this.props;
+
+        const {cards} = this.state;
+
         return(
             <div className={styles.component}>
                 <h3 className={styles.title}>{title}
@@ -36,7 +43,8 @@ class Column extends React.Component{
                     ))}
                 </div>
                 <div className={styles.creator}>
-                    <Creator text={settings.cardCreatorText} action={addCard} />
+                    <Creator text={settings.cardCreatorText} title = {this.addCard(title)}
+                    />
                 </div>
             </div>
         )
